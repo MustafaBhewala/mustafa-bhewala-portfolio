@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustafa Bhewala - Mobile Application Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .hero-text-gradient {
+            background: linear-gradient(145deg, #ffffff, #a8a8a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .card {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(255, 255, 255, 0.1);
+        }
+        .skill-bar-inner {
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #fff;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link:hover {
+            color: #fff;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .magnetic-button {
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter">MB.</div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-gray-400">About</a>
+                <a href="#projects" class="nav-link text-gray-400">Projects</a>
+                <a href="#skills" class="nav-link text-gray-400">Skills</a>
+                <a href="#contact" class="nav-link text-gray-400">Contact</a>
+            </nav>
+            <a href="#contact" class="magnetic-button hidden md:inline-block bg-white text-black font-semibold px-6 py-2 rounded-full hover:bg-gray-200 transition-colors">
+                Let's Talk
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#about" class="text-3xl font-medium text-gray-300">About</a>
+        <a href="#projects" class="text-3xl font-medium text-gray-300">Projects</a>
+        <a href="#skills" class="text-3xl font-medium text-gray-300">Skills</a>
+        <a href="#contact" class="text-3xl font-medium text-gray-300">Contact</a>
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="h-screen flex items-center justify-center text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="z-10 px-4">
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-extrabold hero-text-gradient tracking-tighter leading-tight">
+                Mobile Application <br class="hidden md:block"> Developer
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-400 hero-subtitle">
+                I build beautiful and intuitive mobile applications for iOS & Android.
+            </p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 md:px-12">
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <h2 class="section-title text-4xl md:text-6xl font-bold text-center mb-12 md:mb-20 tracking-tighter">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div class="md:w-1/2 about-text">
+                    <p class="text-lg text-gray-300 mb-4 leading-relaxed">
+                        Hello! I'm Mustafa Bhewala, a B.Tech student at MIT ADT University with a strong passion for information technology. I specialize in building robust applications and have hands-on experience with the full development lifecycle, from UI/UX design in Figma to backend services and DevOps pipelines.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I enjoy tackling challenges and creating innovative solutions. My project experience includes developing AI-powered chatbots, pet care applications, and personalized learning platforms. I'm always eager to learn new technologies and have participated in various techathons and hackathons. I am currently the student coordinator for the International Relations Office at my university.
+                    </p>
+                </div>
+                <div class="md:w-1/2 about-image-container relative w-full max-w-md mx-auto">
+                    <div class="aspect-square rounded-full overflow-hidden shadow-2xl shadow-gray-800">
+                        <img src="https://placehold.co/600x600/1a1a1a/ffffff?text=MB" alt="Mustafa Bhewala Portrait" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <h2 class="section-title text-4xl md:text-6xl font-bold text-center mb-12 md:mb-20 tracking-tighter">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
+                <!-- Project Card 1 -->
+                <div class="card bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800">
+                    <img src="https://placehold.co/800x600/1f2937/4f46e5?text=Chatbot+Service" alt="Chatbot Service Project" class="rounded-xl mb-6">
+                    <h3 class="text-2xl font-bold mb-2">Chatbot with CI/CD Pipeline</h3>
+                    <p class="text-gray-400 mb-4">Developed an AI-powered chatbot using Botpress, with a complete CI/CD integration via Jenkins and Docker for automated testing and deployment.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-indigo-400 transition-colors">View Project &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800">
+                    <img src="https://placehold.co/800x600/1f2937/be185d?text=EduQuest+Navigator" alt="EduQuest Navigator Project" class="rounded-xl mb-6">
+                    <h3 class="text-2xl font-bold mb-2">Personalised Learning Journey App</h3>
+                    <p class="text-gray-400 mb-4">A platform to guide students through their education and career journeys with personalized guidance, resume building, and mentorship connections.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-pink-400 transition-colors">View Project &rarr;</a>
+                    </div>
+                </div>
+                 <!-- Project Card 3 -->
+                <div class="card bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800">
+                    <img src="https://placehold.co/800x600/1f2937/059669?text=Attendify" alt="Attendify Project" class="rounded-xl mb-6">
+                    <h3 class="text-2xl font-bold mb-2">Attendify - Live Monitoring App</h3>
+                    <p class="text-gray-400 mb-4">An online proctoring tool using Flutter and Python to ensure student focus during virtual lectures with face and body tracking.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-emerald-400 transition-colors">View Project &rarr;</a>
+                    </div>
+                </div>
+                 <!-- Project Card 4 -->
+                <div class="card bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800">
+                    <img src="https://placehold.co/800x600/1f2937/d97706?text=Secura+Scanner" alt="Secura Scanner Project" class="rounded-xl mb-6">
+                    <h3 class="text-2xl font-bold mb-2">Secura - Vulnerability Scanner</h3>
+                    <p class="text-gray-400 mb-4">An advanced vulnerability scanning and security analysis tool for real-time detection and automated protection on Android devices.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-amber-400 transition-colors">View Project &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32">
+            <h2 class="section-title text-4xl md:text-6xl font-bold text-center mb-12 md:mb-20 tracking-tighter">My Expertise</h2>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16">
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">Flutter & Dart</h3>
+                        <p class="text-gray-400">95%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">Python</h3>
+                        <p class="text-gray-400">90%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-yellow-400 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">UI/UX Design (Figma)</h3>
+                        <p class="text-gray-400">92%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-purple-500 h-2.5 rounded-full" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">DevOps (Jenkins, Docker)</h3>
+                        <p class="text-gray-400">88%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-red-500 h-2.5 rounded-full" style="width: 88%"></div>
+                    </div>
+                </div>
+                 <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">HTML & CSS</h3>
+                        <p class="text-gray-400">95%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-orange-500 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                 <div class="skill-item">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="text-xl font-semibold">Java</h3>
+                        <p class="text-gray-400">85%</p>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="skill-bar-inner bg-indigo-500 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center">
+            <h2 class="section-title text-4xl md:text-6xl font-bold mb-4 tracking-tighter">Have a project in mind?</h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                I'm currently available for freelance work and internship opportunities. Let's build something amazing together.
+            </p>
+            <a href="mailto:bhewala.mustafa.25@gmail.com" class="magnetic-button inline-block text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-5 rounded-full hover:scale-105 transition-transform">
+                bhewala.mustafa.25@gmail.com
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-900">
+        <p class="text-gray-500">&copy; 2025 Mustafa Bhewala. All rights reserved.</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="twitter"></i></a>
+            <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="github"></i></a>
+            <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from("#hero h1", { duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.2 });
+        gsap.from("#hero .hero-subtitle", { duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.4 });
+
+        // Staggered Section Title Animations
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.to(title, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        // Staggered Card Animations
+        gsap.utils.toArray('.card').forEach((card, i) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                delay: i * 0.1
+            });
+        });
+
+        // About Section Animation
+        gsap.from(".about-text p", {
+            scrollTrigger: { trigger: ".about-text", start: "top 80%" },
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power2.out'
+        });
+        gsap.from(".about-image-container", {
+            scrollTrigger: { trigger: ".about-image-container", start: "top 80%" },
+            opacity: 0,
+            scale: 0.9,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Skill Bar Animations
+        gsap.utils.toArray('.skill-bar-inner').forEach(bar => {
+            gsap.to(bar, {
+                scaleX: 1,
+                duration: 1.5,
+                ease: 'power4.out',
+                scrollTrigger: {
+                    trigger: bar.closest('.skill-item'),
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/50', 'backdrop-blur-lg', 'border-b', 'border-gray-900');
+            } else {
+                header.classList.remove('bg-black/50', 'backdrop-blur-lg', 'border-b', 'border-gray-900');
+            }
+        });
+
+        // Smooth Scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if(mobileMenu.classList.contains('flex')) {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Magnetic Button Effect
+        document.querySelectorAll('.magnetic-button').forEach(button => {
+            button.addEventListener('mousemove', (e) => {
+                const { offsetX, offsetY, target } = e;
+                const { clientWidth, clientHeight } = target;
+                const x = (offsetX / clientWidth) - 0.5;
+                const y = (offsetY / clientHeight) - 0.5;
+
+                gsap.to(button, {
+                    x: x * 20,
+                    y: y * 20,
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+            });
+
+            button.addEventListener('mouseleave', () => {
+                gsap.to(button, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.4,
+                    ease: 'elastic.out(1, 0.3)'
+                });
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+        });
+
+    </script>
+</body>
+</html>

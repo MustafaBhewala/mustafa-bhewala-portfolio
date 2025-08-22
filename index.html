@@ -70,6 +70,18 @@
         .magnetic-button {
             transition: transform 0.2s;
         }
+            /* Desktop-only override: force larger avatar when other CSS rules interfere */
+            @media (min-width: 1024px) {
+                .about-image-container > div {
+                    width: 256px !important;
+                    height: 256px !important;
+                }
+                .about-image-container img {
+                    width: 256px !important;
+                    height: 256px !important;
+                    object-fit: cover;
+                }
+            }
     </style>
 </head>
 <body class="antialiased">
@@ -136,8 +148,8 @@
                         When I'm not coding, you'll find me exploring new technologies, participating in hackathons. I believe in continuous learning and building meaningful connections - both in code and in life.
                     </p>
                 </div>
-                <div class="md:w-1/2 about-image-container relative w-full max-w-md mx-auto">
-                    <div class="aspect-square rounded-full overflow-hidden shadow-2xl shadow-gray-800">
+                   <div class="md:w-1/2 about-image-container relative w-48 h-48 md:w-full md:max-w-md mx-auto">
+                    <div class="w-48 h-48 lg:w-56 lg:h-56 lg:aspect-square rounded-full overflow-hidden shadow-2xl shadow-gray-800">
                         <img src="./images/profile-photo.jpg" alt="Mustafa Bhewala Portrait" class="w-full h-full object-cover">
                     </div>
                 </div>

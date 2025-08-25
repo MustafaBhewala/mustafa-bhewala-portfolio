@@ -33,7 +33,7 @@ Performance optimized
 ->Attendify - Live monitoring and proctoring tool with real-time face and body tracking for virtual lectures
 
 📱 Live Demo
--> Visit the live website: https://mustafabhewala.github.io/mustafa-bhewala-portfolio/
+-> Visit the live website: https://mustafabhewala.tech
 
 🚫 Usage Rights
 -> This code is NOT available for:
